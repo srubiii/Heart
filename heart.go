@@ -40,27 +40,23 @@ func (g *Game) Draw(screen *ebiten.Image) {
 	red := color.RGBA{R: 255, G: 0, B: 0, A: 255}
 
 	// Draw half-circles for the top part of the heart
-	g.DrawHalfCircle(screen, 100, 100, 30, red) // Left half-circle
-	g.DrawHalfCircle(screen, 200, 100, 30, red) // Right half-circle
+	g.DrawHalfCircle(screen, 100, 100, 50, red) // Left half-circle
+	g.DrawHalfCircle(screen, 200, 100, 50, red) // Right half-circle
 
 	// Draw the lines to form the bottom part of the heart
-	vector.StrokeLine(screen, 70, 100, 150, 200, 2, red, false)  // Left line
-	vector.StrokeLine(screen, 230, 100, 150, 200, 2, red, false) // Right line
-
-	// Connect the bottom points to form a heart shape
-	vector.StrokeLine(screen, 100, 100, 150, 200, 2, red, false) // Connect left arc to bottom
-	vector.StrokeLine(screen, 200, 100, 150, 200, 2, red, false) // Connect right arc to bottom
+	vector.StrokeLine(screen, 50, 100, 150, 200, 2, red, false)  // Left line
+	vector.StrokeLine(screen, 250, 100, 150, 200, 2, red, false) // Right line
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
-	return 300, 300
+	return 500, 500
 }
 
 func main() {
 	log.Printf("main: Hello World")
 	fmt.Println("Hello There")
 
-	ebiten.SetWindowSize(300, 300)
+	ebiten.SetWindowSize(500, 500)
 	ebiten.SetWindowTitle("Heart Shape with Half Circles")
 	if err := ebiten.RunGame(&Game{}); err != nil {
 		log.Fatal(err)
