@@ -40,5 +40,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	log.Println("I love you Most ❤️")
+	
 }
